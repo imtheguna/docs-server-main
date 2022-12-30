@@ -9,7 +9,7 @@ const Document = require("./models/doc.model");
 
 const PORT = process.env.PORT | 3001
 const app = express()
-const DB = 'mongodb+srv://<>@cluster0.zx1yzv6.mongodb.net/?retryWrites=true&w=majority'
+const DB = 'mongodb+srv://<user>:<pass>@cluster0.zx1yzv6.mongodb.net/?retryWrites=true&w=majority'
 const server = http.createServer(app)
 const io = require("socket.io")(server)
 
