@@ -56,6 +56,23 @@ documentRouter.get('/doc/:id',auth, async (req,res) => {
 
 })
 
+// documentRouter.post("/doc/delete/:id",auth,async (req,res) =>{
+
+//     try{
+
+//         const {id} = req.body;
+
+//         await Document.findByIdAndDelete(id)
+
+//         res.status();
+
+//     }catch(e){
+
+//         res.status(500).json({error:e.message});
+
+//     }
+
+// });
 
 documentRouter.post("/doc/titleUp",auth,async (req,res) =>{
 
@@ -64,6 +81,24 @@ documentRouter.post("/doc/titleUp",auth,async (req,res) =>{
         const {id,title} = req.body;
 
         const document = await Document.findByIdAndUpdate(id,{title})
+
+        res.status(200).json(document);
+
+    }catch(e){
+
+        res.status(500).json({error:e.message});
+
+    }
+
+});
+
+documentRouter.post("/doc/updatesharedemail",auth,async (req,res) =>{
+
+    try{
+
+        const {id,email} = req.body;
+
+        const document = await Document.findByIdAndUpdate(id,{sharedUser:email})
 
         res.status(200).json(document);
 

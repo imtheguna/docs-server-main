@@ -43,4 +43,16 @@ try{
 }
 })
 
+authRouter.get('/getemail',auth,async (req,res)=>{
+    try{
+        
+        let users =await User.find({id:!req.user});
+        res.status(200).json({users});
+
+     
+    } catch(e){
+        console.log(e.meaagse);
+    }
+    })
+
 module.exports = authRouter;

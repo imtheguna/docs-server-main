@@ -18,7 +18,11 @@ const document = mongose.Schema({
     contents:{
         default:[],
         type:Array,
+    },sharedUser:{
+        type:Array,
+        default:[]
     }
+
 
 
 });
